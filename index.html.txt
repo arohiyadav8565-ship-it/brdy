@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Anandi 🎂</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', cursive;
+}
+
+body{
+    background: linear-gradient(135deg,#ff758c,#ff7eb3);
+    overflow:hidden;
+    text-align:center;
+}
+
+.page{
+    display:none;
+    height:100vh;
+    width:100vw;
+    padding:30px;
+    color:white;
+    animation: fade 1s ease;
+}
+
+.page.active{
+    display:block;
+}
+
+@keyframes fade{
+    from{opacity:0; transform:scale(0.9);}
+    to{opacity:1; transform:scale(1);}
+}
+
+h1{
+    font-size:2.7em;
+    margin-bottom:15px;
+}
+
+p{
+    font-size:1.4em;
+    margin:15px 0;
+}
+
+button{
+    padding:12px 28px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    background:#fff;
+    color:#ff4d6d;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+img{
+    width:280px;
+    border-radius:20px;
+    margin-top:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Slideshow */
+.slideshow img{
+    display:none;
+}
+.slideshow img.active{
+    display:block;
+}
+
+/* Bounce button */
+.bounce{
+    position:absolute;
+    animation:bounce 1.5s infinite alternate;
+}
+@keyframes bounce{
+    from{left:10%;}
+    to{left:70%;}
+}
+
+.signature{
+    margin-top:35px;
+    font-size:1.3em;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 Background Music -->
+<audio autoplay loop>
+<source src="https://pagalfree.com/musics/128-Tera%20Yaar%20Hoon%20Main%20-%20Sonu%20Ke%20Titu%20Ki%20Sweety%20128%20Kbps.mp3">
+</audio>
+
+<!-- 🎤 Voice Note -->
+<audio controls style="position:fixed;bottom:10px;left:10px;">
+<source src="voice.mp3">
+</audio>
+
+<!-- PAGE 1 -->
+<div class="page active">
+    <h1>🎂 Happy Birthday Anandi 🎂</h1>
+    <p>27 January – meri jaan ka din 💖</p>
+    <img src="pic1.jpg">
+    <br><br>
+    <button onclick="nextPage()">Next ➡️</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+    <h1>📸 Our Memories 📸</h1>
+    <p>Har photo ek feeling hai 🥹</p>
+
+    <div class="slideshow">
+        <img src="pic1.jpg" class="active">
+        <img src="pic2.jpg">
+        <img src="pic3.jpg">
+        <img src="pic4.jpg">
+        <img src="pic5.jpg">
+    </div>
+
+    <br>
+    <button onclick="nextPage()">Next ➡️</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+    <h1>💔 Emotional Truth 💔</h1>
+    <p>
+    Jab sab chhod dete hain,<br>
+    tab tu mere saath hoti hai 🤍
+    </p>
+    <img src="pic3.jpg">
+    <br><br>
+    <button onclick="nextPage()">Next ➡️</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+    <h1>✨ 5 Reasons I Love You ✨</h1>
+    <p>
+    💞 Tu samajhti hai<br>
+    💪 Tu meri strength hai<br>
+    😊 Tu meri smile hai<br>
+    🫂 Tu meri family hai<br>
+    ❤️ Tu meri jaan hai
+    </p>
+    <button onclick="nextPage()">Next ➡️</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page">
+    <h1>😂 Fun & Madness 😂</h1>
+    <p>
+    Hasi, rona, pagalpan…<br>
+    sab kuch tere saath hi toh hai 😭💗
+    </p>
+    <img src="pic4.jpg">
+    <br><br>
+    <button onclick="nextPage()">Next ➡️</button>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page">
+    <h1>😜 Naughty Page 😜</h1>
+    <p>Is button ko pakad ke dikha 😏</p>
+    <button class="bounce">Bakwas Button 😂</button>
+    <br><br><br><br>
+    <button onclick="nextPage()">Next ➡️</button>
+</div>
+
+<!-- PAGE 7 -->
+<div class="page">
+    <h1>💖 Promise 💖</h1>
+    <p>
+    Main hamesha tere saath rahungi,<br>
+    chahe duniya ulta ho jaye 🫶
+    </p>
+    <img src="pic5.jpg">
+    <br><br>
+    <button onclick="nextPage()">Next ➡️</button>
+</div>
+
+<!-- PAGE 8 -->
+<div class="page">
+    <h1>🎁 From My Heart 🎁</h1>
+    <p>
+    Happy Birthday my babe 🥺💗<br>
+    Tu meri life ka sabse pyara hissa hai ✨
+    </p>
+
+    <div class="signature">
+        — Yours Always 💕<br>
+        <b>Arohi</b><br>
+        <i>I love u beba ❤️</i>
+    </div>
+</div>
+
+<script>
+let current=0;
+const pages=document.querySelectorAll('.page');
+
+function nextPage(){
+    pages[current].classList.remove('active');
+    current++;
+    if(current<pages.length){
+        pages[current].classList.add('active');
+    }
+}
+
+/* Slideshow */
+let slideIndex=0;
+setInterval(()=>{
+    const slides=document.querySelectorAll('.slideshow img');
+    slides.forEach(img=>img.classList.remove('active'));
+    slideIndex=(slideIndex+1)%slides.length;
+    slides[slideIndex].classList.add('active');
+},2000);
+</script>
+
+</body>
+</html>
